@@ -59,6 +59,6 @@ module.exports.nuxt = {
 
 ## Licenses
 
-- [SailsJS license](https://github.com/koajs/koa/blob/master/LICENSE)
+- [SailsJS license](https://github.com/balderdashy/sails/blob/master/LICENSE.md)
 - [NuxtJS license](https://github.com/nuxt/nuxt.js/blob/master/LICENSE.md)
 - [VueJS license](https://github.com/vuejs/vue/blob/master/LICENSE)
