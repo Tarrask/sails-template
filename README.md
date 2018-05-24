@@ -31,6 +31,17 @@ using a prerelease version of Node (i.e. v7.6.0-rc.1) you will need to either:
 ## Configuration
 The `nuxt.config.js` is located in the `config/nuxt.js` to follow sails convention and to use it from a sails hook.
 
+To access the sails backend from nuxt, you can use the [axios](https://axios.nuxtjs.org/). It is preconfigured by the hook to point to the sails port. For it to work from the client, you may need to add `proxy: true` to nuxt.js
+
+```
+module.exports.nuxt = {
+  modules: [ '@nuxtjs/axios' ],
+  axios: {
+    proxy: true
+  }
+}
+```
+
 ## Documentation
 
 - [Sails.js](https://sailsjs.com)
