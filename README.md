@@ -28,6 +28,8 @@ using a prerelease version of Node (i.e. v7.6.0-rc.1) you will need to either:
 | npm run build | Build the nuxt.js web application for production. |
 | npm start | Start KoaJS server in production. |
 
+## Configuration
+The `nuxt.config.js` is located in the `config/nuxt.js` to follow sails convention and to use it from a sails hook.
 
 ## Documentation
 
