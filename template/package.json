@@ -1,0 +1,38 @@
+{
+  "name": "{{ name }}",
+  "private": true,
+  "version": "0.0.0",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  "keywords": [],
+  "dependencies": {
+    "cross-env": "^5.0.1",
+    "@sailshq/lodash": "^3.10.3",
+    "async": "2.0.1",
+    "nuxt": "^1.4.0",
+    "sails": "^1.0.2",
+    "sails-hook-orm": "^2.0.0-16",
+    "sails-hook-sockets": "^1.4.0",
+    "sails.io.js": "^1.2.1",
+    "socket.io-client": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "@sailshq/eslint": "^4.19.3",
+    "eslint": "^3.13.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^2.0.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "dev": "sails lift",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production sails lift",
+    "lint": "eslint . --max-warnings=0 --ext .js,.vue --report-unused-disable-directives && echo '✔  Your .js files look good.'"
+  },
+  "main": "app.js"
+}
