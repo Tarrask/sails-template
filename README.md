@@ -28,6 +28,19 @@ using a prerelease version of Node (i.e. v7.6.0-rc.1) you will need to either:
 | npm run build | Build the nuxt.js web application for production. |
 | npm start | Start KoaJS server in production. |
 
+## Configuration
+The `nuxt.config.js` is located in the `config/nuxt.js` to follow sails convention and to use it from a sails hook.
+
+To access the sails backend from nuxt, you can use the [axios](https://axios.nuxtjs.org/). It is preconfigured by the hook to point to the sails port. For it to work from the client, you may need to add `proxy: true` to nuxt.js
+
+```
+module.exports.nuxt = {
+  modules: [ '@nuxtjs/axios' ],
+  axios: {
+    proxy: true
+  }
+}
+```
 
 ## Documentation
 
@@ -46,6 +59,6 @@ using a prerelease version of Node (i.e. v7.6.0-rc.1) you will need to either:
 
 ## Licenses
 
-- [SailsJS license](https://github.com/koajs/koa/blob/master/LICENSE)
+- [SailsJS license](https://github.com/balderdashy/sails/blob/master/LICENSE.md)
 - [NuxtJS license](https://github.com/nuxt/nuxt.js/blob/master/LICENSE.md)
 - [VueJS license](https://github.com/vuejs/vue/blob/master/LICENSE)
