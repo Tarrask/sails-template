@@ -30,7 +30,7 @@
   },
   "scripts": {
     "dev": "sails lift",
-    "build": "nuxt build",
+    "build": "cross-env NODE_ENV=production sails run build-nuxt",
     "start": "cross-env NODE_ENV=production sails lift",
     "lint": "eslint . --max-warnings=0 --ext .js,.vue --report-unused-disable-directives && echo '✔  Your .js files look good.'"
   },
