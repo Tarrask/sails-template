@@ -33,6 +33,8 @@ module.exports = function defineNuxtHook(sails) {
           return done(e); 
         }
       }
+			
+			sails.nuxt = nuxt;
 
       // Be sure and call `done()` when finished!
       // (Pass in Error as the first argument if something goes wrong to cause Sails
