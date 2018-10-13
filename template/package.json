@@ -8,8 +8,7 @@
   "dependencies": {
     "cross-env": "^5.0.1",
     "@sailshq/lodash": "^3.10.3",
-    "async": "2.0.1",
-    "nuxt": "^1.4.0",
+    "nuxt": "^2.1.0",
     "sails": "^1.0.2",
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",
@@ -19,14 +18,14 @@
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "@sailshq/eslint": "^4.19.3",
-    "eslint": "^3.13.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-html": "^2.0.3",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint": "^5.7.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.24.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0-beta.3"
   },
   "scripts": {
     "dev": "sails lift",
