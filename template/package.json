@@ -8,12 +8,12 @@
   "dependencies": {
     "cross-env": "^5.0.1",
     "@sailshq/lodash": "^3.10.3",
-    "nuxt": "^2.1.0",
-    "sails": "^1.0.2",
-    "sails-hook-orm": "^2.0.0-16",
-    "sails-hook-sockets": "^1.4.0",
+    "nuxt": "^2.3.4",
+    "sails": "^1.1.0",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^1.5.5",
     "sails.io.js": "^1.2.1",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
