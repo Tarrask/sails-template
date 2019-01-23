@@ -24,9 +24,9 @@ using a prerelease version of Node (i.e. v7.6.0-rc.1) you will need to either:
 
 | Command | Description |
 |---------|-------------|
-| npm run dev | Start KoaJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3000](http://localhost:3000). |
+| npm run dev | Lift sails server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:1337](http://localhost:3000). |
 | npm run build | Build the nuxt.js web application for production. |
-| npm start | Start KoaJS server in production. |
+| npm start | Start sails server in production. |
 
 ## Configuration
 The `nuxt.config.js` is located in the `config/nuxt.js` to follow sails convention and to use it from a sails hook.
