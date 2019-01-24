@@ -14,6 +14,11 @@ npm install # or yarn install*[see note below]
 
 > Make sure to use a version of vue-cli >= 2.1 (vue -V).
 
+If you are using vue-cli >= 3.0, you have to install a [global bridge](https://cli.vuejs.org/guide/creating-a-project.html#pulling-2-x-templates-legacy):
+```bash
+npm install -g @vue/cli-init
+```
+
 *Note: Due to a bug in yarn's engine version detection code if you are
 using a prerelease version of Node (i.e. v7.6.0-rc.1) you will need to either:
 
