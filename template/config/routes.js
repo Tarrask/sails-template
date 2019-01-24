@@ -11,6 +11,20 @@
 module.exports.routes = {
 
 
+  //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
+  //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
+  //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
+
+  /***************************************************************************
+  *                                                                          *
+  * With nuxt.js, should not be serve by sails, but by the nuxt middleware.  *
+  *                                                                          *
+  * Most of the pages will be defined in client/pages. You can also serve    *
+  * static html pages in client/static.                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
@@ -18,7 +32,8 @@ module.exports.routes = {
   *                                                                          *
   * If a request to a URL doesn't match any of the routes in this file, it   *
   * is matched against "shadow routes" (e.g. blueprint routes).  If it does  *
-  * not match any of those, it is matched against static assets.             *
+  * not match any of those, it is matched against nuxt pages and static      *
+  * assets.                                                                  *
   *                                                                          *
   ***************************************************************************/
 
