@@ -28,4 +28,3 @@ module.exports.nuxt = {
   srcDir: 'client/',
   plugins: [ { src: '~plugins/socket.io.js', ssr: false } ],
 };
-
