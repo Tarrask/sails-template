@@ -12,39 +12,41 @@ module.exports = function defineNuxtHook(sails) {
 
   return {
     /**
-     * Runs when a Sails app loads/lifts.
+     * Runs when a Sails app loads/lifts. Wait for the orm hook to complete to prevent database corruption on alter,
+     * when nuxt crash on start.
      *
      * @param {Function} done
      */
     initialize: async function (done) {
+      sails.after('hook:orm:loaded', async () => {
+        sails.log.info('Initializing nuxt (`hooks/nuxt`)');
 
-      sails.log.info('Initializing nuxt (`hooks/nuxt`)');
+        // define API_PORT environment variable, used by axios module to access api
+        process.env.API_PORT = sails.config.port;
 
-      // define API_PORT environment variable, used by axios module to access api
-      process.env.API_PORT = sails.config.port;
-
-      // start nuxt using sails provided config
-      nuxt = new Nuxt(sails.config[this.configKey]);
-      if(nuxt.options.dev) {
-        try {
-          await new Builder(nuxt).build();
+        // start nuxt using sails provided config
+        nuxt = new Nuxt(sails.config[this.configKey]);
+        if(nuxt.options.dev) {
+          try {
+            await new Builder(nuxt).build();
+          }
+          catch(e) {
+            return done(e);
+          }
         }
-        catch(e) { 
-          return done(e); 
-        }
-      }
-			
-			sails.nuxt = nuxt;
 
-      // Be sure and call `done()` when finished!
-      // (Pass in Error as the first argument if something goes wrong to cause Sails
-      //  to stop loading other hooks and give up.)
-      return done();
+        sails.nuxt = nuxt;
+
+        // Be sure and call `done()` when finished!
+        // (Pass in Error as the first argument if something goes wrong to cause Sails
+        //  to stop loading other hooks and give up.)
+        return done();
+      });
     },
 
     routes: {
       after: {
-        '*': function(req, res, next) {
+        '*': function(req, res) {
           return nuxt.render(req, res);
         }
       }
