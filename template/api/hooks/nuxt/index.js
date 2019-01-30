@@ -5,6 +5,7 @@
  * @docs        :: https://sailsjs.com/docs/concepts/extending-sails/hooks
  */
 const { Nuxt, Builder } = require('nuxt');
+const signCookie = require('cookie-signature').sign;
 
 module.exports = function defineNuxtHook(sails) {
 
@@ -46,10 +47,44 @@ module.exports = function defineNuxtHook(sails) {
 
     routes: {
       after: {
-        '*': function(req, res) {
+        '*': async function(req, res) {
+          await updateSessionCookie(req);
           return nuxt.render(req, res);
         }
       }
     }
   };
+
+  /**
+   * This is to work around a limitation of the server-side rendering.
+   * When a client request a page but doesn't provide a valid session cookie, a new session is
+   * created to handle the page. But when the page need to make more requests, for exemple in
+   * asyncData or nuxtServerInit, the subsequent requests are made with the same invalid
+   * cookie, creating a new session for each request. At the end, the session created for the
+   * page is saved, overriding all others sessions.
+   * This function solve this problem, by setting the session cookie for subsequent request to
+   * match the session created for the page. This way, we only have one session. The cookie
+   * is also correctly send back to the client at the end.
+   */
+  function updateSessionCookie(req) {
+    return new Promise(resolve => {
+      if(req.session) {
+        req.session.save(() => {
+          // replace session cookie
+          req.signedCookies['sails.sid'] = signCookie(req.sessionID, sails.config.session.secret);
+          // rebuild cookies string
+          req.headers.cookie = _.reduce(req.signedCookies, (result, value, key) => {
+            value && result.push(key + '=s:' + value); return result;
+          }, _.reduce(req.cookies, (result, value, key) => {
+            result.push(key + '=' + value); return result;
+          }, [])).join(';');
+
+          return resolve();
+        });
+      }
+      else {
+        return resolve();
+      }
+    });
+  }
 };

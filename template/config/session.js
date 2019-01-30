@@ -32,8 +32,8 @@ module.exports.session = {
   * https://sailsjs.com/config/session                                       *
   *                                                                          *
   ***************************************************************************/
-  // isSessionDisabled: function (req){
-  //   return !!req.path.match(req._sails.LOOKS_LIKE_ASSET_RX);
-  // },
+  isSessionDisabled: function(req) {
+    return req.url === '/__webpack_hmr/client' || !!req.path.match(req._sails.LOOKS_LIKE_ASSET_RX);
+  }
 
 };

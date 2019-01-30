@@ -8,6 +8,7 @@
   "dependencies": {
     "cross-env": "^5.0.1",
     "@sailshq/lodash": "^3.10.3",
+    "cookie-signature": "^1.1.0",
     "nuxt": "^2.3.4",
     "sails": "^1.1.0",
     "sails-hook-orm": "^2.1.1",
