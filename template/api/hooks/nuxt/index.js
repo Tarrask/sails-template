@@ -71,10 +71,10 @@ module.exports = function defineNuxtHook(sails) {
       if(req.session) {
         req.session.save(() => {
           // replace session cookie
-          req.signedCookies[sails.config.session.name] = signCookie(req.sessionID, sails.config.session.secret);
+          req.signedCookies[sails.config.session.name] = req.sessionID;
           // rebuild cookies string
           req.headers.cookie = _.reduce(req.signedCookies, (result, value, key) => {
-            value && result.push(key + '=s:' + value); return result;
+            value && result.push(key + '=s:' + signCookie(value, sails.config.session.secret)); return result;
           }, _.reduce(req.cookies, (result, value, key) => {
             result.push(key + '=' + value); return result;
           }, [])).join(';');
