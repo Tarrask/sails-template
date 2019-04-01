@@ -6,9 +6,9 @@
   "author": "{{ author }}",
   "keywords": [],
   "dependencies": {
-    "cross-env": "^5.0.1",
     "@sailshq/lodash": "^3.10.3",
     "cookie-signature": "^1.1.0",
+    "cross-env": "^5.0.1",
     "nuxt": "^2.3.4",
     "sails": "^1.1.0",
     "sails-hook-orm": "^2.1.1",
@@ -17,10 +17,11 @@
     "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
     "@sailshq/eslint": "^4.19.3",
+    "babel-eslint": "^7.1.1",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.24.1",
     "eslint-plugin-node": "^7.0.1",
