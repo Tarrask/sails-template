@@ -35,7 +35,7 @@ module.exports = function defineNuxtHook(sails) {
             return done(e);
           }
         }
-
+        await nuxt.ready();
         sails.nuxt = nuxt;
 
         // Be sure and call `done()` when finished!
